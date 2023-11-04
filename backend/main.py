@@ -77,5 +77,5 @@ def get_action(method: str) -> Optional[Callable]:
 
 @app.route('/', methods=['POST', 'GET', 'PUT'])
 def handle_requests() -> Response:
-    data = request.get_json()
+    data: dict = request.get_json()
     return get_action(request.method)(data)
